@@ -656,12 +656,18 @@ impl FloatingPoint for f32 {
         true
     }
 }
+impl FloatingPoint for half::f16 {
+    fn is_real() -> bool {
+        true
+    }
+}
 
 ///Trait qualifier to accept real data(numbers)
 pub trait RealFloating: HasAfEnum {}
 
 impl RealFloating for f64 {}
 impl RealFloating for f32 {}
+impl RealFloating for half::f16 {}
 
 ///Trait qualifier to accept complex data(numbers)
 pub trait ComplexFloating: HasAfEnum {}
@@ -674,6 +680,7 @@ pub trait RealNumber: HasAfEnum {}
 
 impl RealNumber for f64 {}
 impl RealNumber for f32 {}
+impl RealNumber for half::f16 {}
 impl RealNumber for i32 {}
 impl RealNumber for u32 {}
 impl RealNumber for i16 {}

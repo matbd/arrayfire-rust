@@ -771,6 +771,7 @@ arith_scalar_spec!(i64);
 arith_scalar_spec!(u32);
 arith_scalar_spec!(i32);
 arith_scalar_spec!(u8);
+arith_scalar_spec!(half::f16);
 
 macro_rules! arith_func {
     ($op_name:ident, $fn_name:ident, $delegate:ident) => {

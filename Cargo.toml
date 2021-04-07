@@ -52,11 +52,10 @@ afserde = ["serde"]
 libc = "0.2"
 num  = "0.2"
 lazy_static = "1.0"
-half = "1.5.0"
+half = { version = "1.7.1", git = "https://github.com/matbd/half-rs", branch="num_traits", features = ["serde", "std", "num-traits"] }
 serde = { version = "1.0", features = ["derive"], optional = true }
 
 [dev-dependencies]
-half = "1.5.0"
 serde_json = "1.0"
 bincode = "1.3"
 

@@ -113,6 +113,7 @@ extern "C" {
 ///
 /// - f32
 /// - f64
+/// - f16
 /// - num::Complex\<f32\>
 /// - num::Complex\<f64\>
 /// - bool
@@ -241,7 +242,7 @@ macro_rules! cnst {
                     let mut temp: af_array = std::ptr::null_mut();
                     let err_val = af_constant(
                         &mut temp as *mut af_array,
-                        *self as c_double,
+                        c_double::from(*self),
                         dims.ndims() as c_uint,
                         dims.get().as_ptr() as *const dim_t,
                         $ffi_type,
@@ -261,6 +262,7 @@ cnst!(u32, 6);
 cnst!(u8, 7);
 cnst!(i16, 10);
 cnst!(u16, 11);
+cnst!(half::f16, 12);
 
 /// Create an Array with constant value
 ///
@@ -277,6 +279,7 @@ cnst!(u16, 11);
 /// - u8
 /// - i16
 /// - u16
+/// - f16
 ///
 /// # Parameters
 ///
